@@ -18,7 +18,7 @@
         
          
     
-        <div id="userbar">Hello Example. Not you? Log out.</div>
+        <div id="userbar">Hello, gamer! <a class="item" href="signup.php">Please create an account<a></div>
     </div>
     
         <div id="content">
