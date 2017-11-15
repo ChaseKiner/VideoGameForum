@@ -15,8 +15,7 @@
     <div id="menu">
         <a class="item" href="index.php">Home</a> -
         <a class="item" href="create_topic.php">Create a topic</a> -
-        
-         
+        <a class="item" href="quiz.php">Take a quiz</a> -
     
         <div id="userbar">Hello, gamer! <a class="item" href="signup.php">Please create an account<a></div>
     </div>

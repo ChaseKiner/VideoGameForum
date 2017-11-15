@@ -1,7 +1,7 @@
 <?php
     include 'header.php'
 ?>
-log in here
+Take a quiz here
 <?php
     include 'footer.php'
 ?>

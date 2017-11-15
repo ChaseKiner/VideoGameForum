@@ -1,7 +1,7 @@
 <?php
     include 'header.php'
 ?>
-log in here
+Create a topic here
 <?php
     include 'footer.php'
 ?>
