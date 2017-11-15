@@ -7,14 +7,14 @@
     <meta name="description" content="A short description." />
     <meta name="keywords" content="put, keywords, here" />
     <title>Video Game Forum</title>
-    <link rel="stylesheet" href="/forum/style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
     <div id="wrapper">
-    <img src="/forum/Nintendo-banner.jpg">
+    <img src="Nintendo-banner.jpg">
     <div id="menu">
-        <a class="item" href="/forum/index.php">Home</a> -
-        <a class="item" href="/forum/create_topic.php">Create a topic</a> -
+        <a class="item" href="index.php">Home</a> -
+        <a class="item" href="create_topic.php">Create a topic</a> -
         
          
     
