@@ -10,7 +10,7 @@
         <h3><a href="category.php?id=PS4">Playstation 4</a></h3>Discuss all things related to PS4 here
     </td>
     <td class="rightpart">
-        <a href="topic.php?id=">Topic subject</a> at 10-10
+        <a href="topic.php?id=">Most Recent Topic</a> at (date)
     </td>
 </tr>
 <tr>
@@ -21,7 +21,7 @@
         <h3><a href="category.php?id=Xbox">Xbox One</a></h3>Discuss all things related to Xbox here
     </td>
     <td class="rightpart">
-        <a href="topic.php?id=">Topic subject</a> at 10-10
+        <a href="topic.php?id=">Most Recent Topic</a> at (date)
     </td>
 </tr>
 <tr>
@@ -32,7 +32,7 @@
         <h3><a href="category.php?id=PC">PC</a></h3>Discuss all things related to PC gaming here
     </td>
     <td class="rightpart">
-        <a href="topic.php?id=">Topic subject</a> at 10-10
+        <a href="topic.php?id=">Most Recent Topic</a> at (date)
     </td>
 </tr>
 <tr>
@@ -43,7 +43,7 @@
         <h3><a href="category.php?id=Switch">Nintendo Switch</a></h3>Discuss all things related to the Nintendo Switch here
     </td>
     <td class="rightpart">
-        <a href="topic.php?id=">Topic subject</a> at 10-10
+        <a href="topic.php?id=">Most Recent Topic</a> at (date)
     </td>
 </tr>
 </table>
