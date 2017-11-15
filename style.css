@@ -28,7 +28,7 @@ body {
     border: 1px solid #000;
     border-bottom: none;        
     clear: both;                /* clear:both makes sure the content div doesn't float next to this one but stays under it */
-    width:100%;
+    width: 100%;
     height:20px;
     padding-left: 30px;
     padding-right: 30px;
@@ -47,7 +47,7 @@ body {
 #userbar {
     background-color: #fff;
     float: right;
-    width: 250px;
+    width: 20;
 }
 #footer {
     clear: both;
