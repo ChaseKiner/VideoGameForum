@@ -1,6 +1,6 @@
 
 body {
-    background-color: #827C7C;
+    background-color: #E0DADA;
     text-align: center;         /* make sure IE centers the page too */
 }
  
@@ -50,18 +50,8 @@ table {
     width: 100%;
 }
  
-table a {
-    color: #000;
-}
- 
-table a:hover {
-    color:#373737;
-    text-decoration: none;
-}
- 
 tr {
-    background-color: #917BE8;
-    color: #F0F0F0;
+    background-color: #FFFFFF;
     
 }
  
@@ -69,8 +59,8 @@ td {
     border-radius: 10px;
     padding: 3px;
 }
-tr:nth-child(even){background-color: #f2f2f2}
-tr:nth-child(even){color: #917BE8}
+tr:nth-child(even){background-color: #E4E4E4}
+
 /* Begin font styles */
 h1, #footer {
     font-family: Arial;
@@ -78,7 +68,10 @@ h1, #footer {
 }
  
 h3 {margin: 0; padding: 0;}
- 
+/* image */
+td.image{
+    width: 10%;
+}
 /* Menu styles */
 .item {
     background-color: #103037;
@@ -94,7 +87,7 @@ h3 {margin: 0; padding: 0;}
 }
  
 .rightpart {
-    width: 30%;
+    width: 20%;
 }
 
 .small {
