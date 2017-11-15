@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="wrapper">
-    <img src="Nintendo-banner.jpg">
+    <img src="img/Nintendo-banner.jpg">
     <div id="menu">
         <a class="item" href="index.php">Home</a> -
         <a class="item" href="create_topic.php">Create a topic</a> -
