@@ -1,7 +1,47 @@
 <?php
     include 'header.php'
-?>
-log in here
-<?php
+    include 'connect.php'
+        
+        
+    $email_post = $_POST['email'];
+$p = $_POST['password'];
+
+function absolute_url ($page = '') {
+
+	// Start defining the URL...
+	// URL is http:// plus the host name plus the current directory:
+	$url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
+	
+	// Remove any trailing slashes:
+	$url = rtrim($url, '/\\');
+	
+	// Add the page:
+	$url .= '/' . $page;
+	
+	// Return the URL:
+	return $url;
+
+} // End of absolute_url() function
+
+$q = "SELECT * FROM user WHERE email=$email_post and password=SHA1('$p')";
+$r = @mysqli_query ($dbc, $q);
+
+if (mysqli_num_rows($r) == 1) {
+    // Get the user's information:
+	$row = mysqli_fetch_array ($r, MYSQLI_NUM);
+	
+    // Set the session data:
+    session_start();
+    $_SESSION['user_email'] = strtolower($email_post);
+   //will need changed
+    $_SESSION['user_name'] = $row[2];
+    $_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
+    
+    
+    $url = absolute_url ('loggedin.php');
+	header("Location: $url");
+	exit();
+}
+
     include 'footer.php'
 ?>
