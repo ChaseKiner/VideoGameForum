@@ -1,13 +1,12 @@
 <?php
-    include 'header.php'
+    include 'header.php';
     
     
     // Start output buffering:
 ob_start();
 
 // Initialize a session:
-session_start();
-
+session_unset();
 ?>
 <form class="form" action="login.php" method="post">
 			

@@ -1,8 +1,14 @@
 <?php
-    include 'header.php'
-    include 'connect.php'
-        
-   if (isset($_POST['submit'])) {    
+    include 'header.php';
+	include 'connect.php';
+	
+   if (isset($_POST['submit'])) {
+	   $first_name = $_POST['first_name'];
+	   $last_name = $_POST['last_name'];
+	   $email = $_POST['email'];
+	   $password = $_POST['password'];
+	   $p = $_POST['p'];  
+	   $match = $_POST['match'];
         // Check for a first name:
 		if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $first_name)) {
 		} else {
@@ -41,25 +47,26 @@
 		// Register the user in the database...
 		
 		// Make the query:
-		$q = "INSERT INTO users (			  
-				first_name,
-				last_name,
-				email,
-				password
+		$q = "INSERT INTO user (			  
+				FirstName,
+				LastName,
+				Email,
+				Password
 			) VALUES (
 				'$first_name',
 				'$last_name',
 				'$email',
 				SHA1('$password')
 				)";
-		$r = @mysqli_query ($dbc, $q); // Run the query.
+		$r = @mysql_query($q); // Run the query.
 		if ($r) { // If it ran OK.
 			// Print a message:
 							echo '<h3 class="panel-title">Submission to Database Successful!</h3>';
 							}else { // If it did not run OK.
 				// Public message:
 			echo '<h2><strong>System Error!</strong></h2>
-			<p class="error">There are problems with this submission.</p>'; 
+			<p class="error">There are problems with this submission.</p>';
+			echo mysql_error();
 			
 			$ShowSubmit = 1; //show the submit button
 			unset($_POST['submit']);
@@ -69,7 +76,7 @@
 		unset($_POST['submit']);
 		
 	} // End of if (empty($errors)) IF.
-		mysqli_close($dbc); // Close the database connection.
+		//mysql_close($dbc); // Close the database connection.
 
 } // End of the main Submit conditional.
 else{
@@ -79,7 +86,7 @@ else{
 	$password = '';
 	$p = '';
 	$match = '';
-				
+	$ShowSubmit = 0;
 	}
 ?>
 <script>
@@ -209,10 +216,11 @@ else{
     </table>
 <?php 
 		if ($ShowSubmit == 1) { 
-
+		
 		echo "<br><button type=\"submit\" class=\"btn btn-primary\" value=\"Submit\" id=\"submit\" name=\"submit\"><span class=\"glyphicon glyphicon-send\"></span> Submit</button></span>";  
 
 		}
+
 		?>
 
 </form> 

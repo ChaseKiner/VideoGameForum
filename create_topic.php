@@ -1,7 +1,35 @@
 <?php
-    include 'header.php'
-?>
-Create a topic here
-<?php
-    include 'footer.php'
+//create_cat.php
+
+include 'header.php';
+include 'connect.php';
+if(isset($_SESSION['userId'])){
+    if($_SERVER['REQUEST_METHOD'] != 'POST')
+    {
+
+        echo "<form method='post' action=''>
+            Title: <br><input type='text' name='title' /><br>
+            Description: <br><textarea name='description' /></textarea><br>
+            <input type='submit' value='Add category' />
+        </form>";
+    }
+    else
+    {
+        //the form has been posted, so save it
+        $sql = "INSERT INTO Message(Title, Content, Posts, Category)
+        VALUES('" . mysql_real_escape_string($_POST['title']) . "',
+                '". mysql_real_escape_string($_POST['description']) ."',
+                ".$_SESSION["userId"].",
+                ".$_GET["id"].")";
+        $result = mysql_query($sql);
+        if(!$result)
+        {
+            echo 'Error' . mysql_error();
+        }
+        else
+        {
+            echo 'New thread successfully added.';
+        }
+    }
+}
 ?>

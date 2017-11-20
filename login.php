@@ -1,10 +1,10 @@
 <?php
-    include 'header.php'
-    include 'connect.php'
+    include 'header.php';
+    include 'connect.php';
         
         
     $email_post = $_POST['email'];
-$p = $_POST['password'];
+    $p = $_POST['pass'];
 
 function absolute_url ($page = '') {
 
@@ -23,18 +23,19 @@ function absolute_url ($page = '') {
 
 } // End of absolute_url() function
 
-$q = "SELECT * FROM user WHERE email=$email_post and password=SHA1('$p')";
-$r = @mysqli_query ($dbc, $q);
-
-if (mysqli_num_rows($r) == 1) {
+$q = "SELECT * FROM user WHERE Email='$email_post' AND Password=SHA1('$p')";
+$r = @mysql_query($q);
+echo mysql_error();
+if (mysql_num_rows($r) == 1) {
     // Get the user's information:
-	$row = mysqli_fetch_array ($r, MYSQLI_NUM);
+	$row = mysql_fetch_assoc($r);
 	
     // Set the session data:
     session_start();
+    $_SESSION['userId'] = $row['UserId'];
     $_SESSION['user_email'] = strtolower($email_post);
    //will need changed
-    $_SESSION['user_name'] = $row[2];
+    $_SESSION['username'] = $row['FirstName'];
     $_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
     
     
