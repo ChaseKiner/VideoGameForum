@@ -19,6 +19,7 @@ if($_SESSION["userId"]==$row["Posts"]){
     echo '<a href="delete.php?id='.$row["MessageId"].'"> [Delete]</a>';
 }
 echo '</table>';
+echo '<br><br>';
 
 //Insert replies
 $repliesQuery = 'SELECT Content, Sends FROM Reply WHERE Attached = '.$_GET['id'];

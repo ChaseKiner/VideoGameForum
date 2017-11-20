@@ -6,6 +6,9 @@
     $r = mysql_query($q);
     echo mysql_error();
     echo "<table><th>Thread</th><th>Posted by</th>";
+    if(mysql_num_rows($r)==0){
+        echo '<tr><td>No topics in this category yet</td></tr>';
+    }
     while($row = mysql_fetch_assoc($r)){
         $query = "SELECT FirstName, LastName FROM user WHERE userId = ".$row["Posts"];
         $res = mysql_query($query);

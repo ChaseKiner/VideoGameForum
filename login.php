@@ -44,6 +44,6 @@ if (mysql_num_rows($r) == 1) {
 	header("Location: $url");
 	exit();
 }
-
+    echo 'username or password is incorrect';
     include 'footer.php'
 ?>
