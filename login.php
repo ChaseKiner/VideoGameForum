@@ -28,6 +28,7 @@ $r = @mysql_query($q);
 echo mysql_error();
 if (mysql_num_rows($r) == 1) {
     // Get the user's information:
+    
 	$row = mysql_fetch_assoc($r);
 	
     // Set the session data:
