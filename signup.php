@@ -86,7 +86,7 @@ else{
 	$password = '';
 	$p = '';
 	$match = '';
-	$ShowSubmit = 0;
+	$ShowSubmit = 1;
 	}
 ?>
 <script>
@@ -215,7 +215,7 @@ else{
 			</tr>
     </table>
 <?php 
-		if ($ShowSubmit == 1) { 
+		if (isset($ShowSubmit) && $ShowSubmit == 1) { 
 		
 		echo "<br><button type=\"submit\" class=\"btn btn-primary\" value=\"Submit\" id=\"submit\" name=\"submit\"><span class=\"glyphicon glyphicon-send\"></span> Submit</button></span>";  
 

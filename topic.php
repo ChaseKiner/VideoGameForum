@@ -20,6 +20,38 @@ if($_SESSION["userId"]==$row["Posts"]){
 }
 echo '</table>';
 
+//Insert replies
+$repliesQuery = 'SELECT Content, Sends FROM Reply WHERE Attached = '.$_GET['id'];
+$resReply = mysql_query($repliesQuery);
+echo '<table>';
+while($rowReply = mysql_fetch_assoc($resReply)){
+//Get name of replier
+$replierQuery = 'SELECT FirstName, LastName FROM User WHERE UserId = '.$rowReply["Sends"];
+$replierName = mysql_fetch_assoc(mysql_query($replierQuery));
+echo '<tr>';
+echo '<td class="rightpart">'.$replierName["FirstName"]." ".$replierName["LastName"].'</td>';
+echo '<td class="leftpart">'.$rowReply["Content"].'</td>';
+echo '</tr>';
+echo '<br>';
+}
+echo '</table>';
+if(isset($_SESSION["userId"])){
+    if($_SERVER['REQUEST_METHOD'] != 'POST')
+    {
+
+        echo "<form method='post' action=''>
+            Reply: <br><textarea name='reply' /></textarea><br>
+            <input type='submit' value='Reply' />
+        </form>";
+    }
+    else{
+        $sql = "INSERT INTO Reply(Content, Sends, Attached)
+        VALUES('". mysql_real_escape_string($_POST['reply']) ."',
+                ".$_SESSION["userId"].",
+                ".$_GET["id"].")";
+        $result = mysql_query($sql);
+    }
+}
 
 include 'footer.php';
 ?>
