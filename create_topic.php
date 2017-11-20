@@ -10,7 +10,7 @@ if(isset($_SESSION['userId'])){
         echo "<form method='post' action=''>
             Title: <br><input type='text' name='title' /><br>
             Description: <br><textarea name='description' /></textarea><br>
-            <input type='submit' value='Add category' />
+            <input type='submit' value='Add Topic' />
         </form>";
     }
     else

@@ -32,24 +32,24 @@ echo '<tr>';
 echo '<td class="rightpart">'.$replierName["FirstName"]." ".$replierName["LastName"].'</td>';
 echo '<td class="leftpart">'.$rowReply["Content"].'</td>';
 echo '</tr>';
-echo '<br>';
 }
 echo '</table>';
 if(isset($_SESSION["userId"])){
-    if($_SERVER['REQUEST_METHOD'] != 'POST')
-    {
-
         echo "<form method='post' action=''>
             Reply: <br><textarea name='reply' /></textarea><br>
             <input type='submit' value='Reply' />
         </form>";
-    }
-    else{
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $sql = "INSERT INTO Reply(Content, Sends, Attached)
         VALUES('". mysql_real_escape_string($_POST['reply']) ."',
                 ".$_SESSION["userId"].",
                 ".$_GET["id"].")";
         $result = mysql_query($sql);
+        //display the new reply
+        echo '<table><tr><td class="rightpart">'.$_SESSION['username'].'
+        </td><td class="leftpart">'.$_POST['reply'].'</td></tr></table>';
+        
+
     }
 }
 
