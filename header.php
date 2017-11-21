@@ -15,12 +15,6 @@
     <img src="img/Nintendo-banner.jpg">
     <div id="menu">
         <a class="item" href="index.php">Home</a> -
-        
-        <?php
-        if($webpage=='category.php'){
-            echo '<a class="item" href="create_topic.php?id='.$_GET['id'].'">Create a topic</a> -';
-        } 
-        ?>
         <a class="item" href="quiz.php">Take a quiz</a>
     
         <div id="userbar">

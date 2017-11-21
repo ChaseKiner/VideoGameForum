@@ -19,6 +19,8 @@
         echo "</tr>";
     }
     echo "</table>";
+    echo"<br>";
+    echo '<a class="item" href="create_topic.php?id='.$_GET['id'].'">Create a topic</a>';
 ?>
 
 <?php

@@ -1,4 +1,5 @@
 <?php
+
     include 'header.php';
     
     
@@ -33,5 +34,5 @@ session_unset();
             </div>
 			</form>
       <?php
-    include 'footer.php'
+    include 'footer.php';
 ?>

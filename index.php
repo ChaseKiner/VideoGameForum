@@ -4,10 +4,10 @@
 ?>
 <table>
 <tr>
-    <td class="image">
+    <td class="categoriesimage">
         <img src="img/PS4.png" height="100" width="100">
     </td>
-    <td class="leftpart">
+    <td class="categoriesleftpart">
         <h3><a href="category.php?id=2">Playstation 4</a></h3>Discuss all things related to PS4 here
     </td>
     <td class="rightpart">
