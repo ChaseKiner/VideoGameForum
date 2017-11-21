@@ -28,7 +28,7 @@
             else{
                 echo 'Hello, ';
                 echo $_SESSION["username"]." ";
-                echo '<a class="item" href="login_page.inc.php">Log out<a>';
+                echo '<a class="item" href="signout.php">Log out<a>';
             }
             ?>
         </div>

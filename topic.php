@@ -14,13 +14,19 @@ $repliesQuery = 'SELECT Content, Sends FROM Reply WHERE Attached = '.$_GET['id']
 $resReply = mysql_query($repliesQuery);
 
 
-echo '<div id="topic-post">';
-echo '<table><th><h2>'.$row["Title"].'</th></h2>';
-echo '<tr><td><h3>';
+echo '<div id="topic-post">
+        <table>
+        <th width="20%"><h2>'.$row["Title"].'</th></h2>
+            <tr>
+                <td class = "postleftpart">
+                <img class = "post-image"src="img/Placeholderface.svg.png"><br>
+                    '.$name["FirstName"].' '.$name["LastName"];
+                
+echo '<td class = "postrightpart"><h3>';
 echo $row["Content"];
 echo '</td></tr></h3>';
 echo '<tr><td>';
-echo 'Posted by:'.$name["FirstName"].' '.$name["LastName"];
+
 if(isset($_SESSION["userId"]))
 if($_SESSION["userId"]==$row["Posts"]){
     echo '<a class="item" href="update.php?id='.$row["MessageId"].'">[Update]</a>';
@@ -40,7 +46,7 @@ while($rowReply = mysql_fetch_assoc($resReply)){
     $replierName = mysql_fetch_assoc(mysql_query($replierQuery));
     echo '<tr>';
     echo '<td class="replyleftpart">
-        <img class = "post-image"src="img/Placeholderface.svg.png">'
+        <img class = "post-image"src="img/Placeholderface.svg.png"><br>'
         .$replierName["FirstName"]." ".$replierName["LastName"].'
         </td>';
     echo '<td class="replyrightpart">'.$rowReply["Content"].'</td>';
