@@ -53,12 +53,13 @@ while($rowReply = mysql_fetch_assoc($resReply)){
     echo '</tr>';
 }
 echo '</table>';
+echo '<br><br>';
 
 //Reply form
 if(isset($_SESSION["userId"])){
         echo "<form method='post' action=''>
             Reply: <br><textarea name='reply' /></textarea><br>
-            <input type='submit' value='Reply' />
+            <input class = 'item' type='submit' value='Reply' />
         </form>";
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $sql = "INSERT INTO Reply(Content, Sends, Attached)

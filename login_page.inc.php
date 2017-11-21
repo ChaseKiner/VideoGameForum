@@ -1,13 +1,11 @@
 <?php
-
     include 'header.php';
     
-    
+session_unset();
     // Start output buffering:
 ob_start();
 
 // Initialize a session:
-session_unset();
 ?>
 <form class="form" action="login.php" method="post">
 			
@@ -28,7 +26,7 @@ session_unset();
             
             
             <div class="input-group">
-              <button type="submit" name="submit"> Login</button>&nbsp;
+              <button type="submit" name="submit" class = "item"> Login</button>&nbsp;
               
             
             </div>

@@ -1,5 +1,4 @@
 <?php
-    session_unset();
-    
+    unset($_SESSION["userId"]);
     header("Location: login_page.inc.php");
 ?>
