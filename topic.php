@@ -50,8 +50,8 @@ if(isset($_SESSION["userId"])){
                 ".$_GET["id"].")";
         $result = mysql_query($sql);
         //display the new reply
-        echo '<table><tr><td class="rightpart">'.$_SESSION['username'].'
-        </td><td class="leftpart">'.$_POST['reply'].'</td></tr></table>';
+        $url = 'topic.php?id='.$_GET["id"];
+        header("Location: $url");
         
 
     }

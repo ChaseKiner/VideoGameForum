@@ -27,8 +27,9 @@ if(isset($_SESSION['userId'])){
             echo 'Error' . mysql_error();
         }
         else
-        {
-            echo 'New thread successfully added.';
+        {   
+            $url = 'category.php?id='.$_GET["id"];
+            header("Location: $url");
         }
     }
 }
