@@ -93,11 +93,13 @@ td.replyleftpart {
     width: 20%;
     height: 100px;
     border:1px solid #000;
+    text-align: center;
 }
 
 td.replyrightpart {
     width: 80%;
     border:1px solid #000;
+    vertical-align: top;
 }
 
 /*give tables a zebra pattern */
@@ -139,6 +141,13 @@ h3 {margin: 0; padding: 0;}
  
 .post-content {
     padding: 30px;
+}
+.post-image {
+    border-radius: 50%;
+    border: 1px solid #232121;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
 }
  
 textarea {

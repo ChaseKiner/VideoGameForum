@@ -1,11 +1,18 @@
 <?php
 include 'header.php';
 include 'connect.php';
+
+//Query topic message
 $query = 'SELECT * FROM Message WHERE MessageId = '.$_GET['id'];
 $res = mysql_query($query);
 $row = mysql_fetch_assoc($res);
 $q = 'SELECT FirstName, LastName FROM User WHERE UserId = '.$row["Posts"];
 $name = mysql_fetch_assoc(mysql_query($q));
+
+//Query replies
+$repliesQuery = 'SELECT Content, Sends FROM Reply WHERE Attached = '.$_GET['id'];
+$resReply = mysql_query($repliesQuery);
+
 
 echo '<div id="topic-post">';
 echo '<table><th><h2>'.$row["Title"].'</th></h2>';
@@ -24,20 +31,24 @@ echo '</table>';
 echo '</div>';
 echo '<br><br>';
 
+
 //Insert replies
-$repliesQuery = 'SELECT Content, Sends FROM Reply WHERE Attached = '.$_GET['id'];
-$resReply = mysql_query($repliesQuery);
 echo '<table>';
 while($rowReply = mysql_fetch_assoc($resReply)){
-//Get name of replier
-$replierQuery = 'SELECT FirstName, LastName FROM User WHERE UserId = '.$rowReply["Sends"];
-$replierName = mysql_fetch_assoc(mysql_query($replierQuery));
-echo '<tr>';
-echo '<td class="replyleftpart">'.$replierName["FirstName"]." ".$replierName["LastName"].'</td>';
-echo '<td class="replyrightpart">'.$rowReply["Content"].'</td>';
-echo '</tr>';
+    //Get name of replier
+    $replierQuery = 'SELECT FirstName, LastName FROM User WHERE UserId = '.$rowReply["Sends"];
+    $replierName = mysql_fetch_assoc(mysql_query($replierQuery));
+    echo '<tr>';
+    echo '<td class="replyleftpart">
+        <img class = "post-image"src="img/Placeholderface.svg.png">'
+        .$replierName["FirstName"]." ".$replierName["LastName"].'
+        </td>';
+    echo '<td class="replyrightpart">'.$rowReply["Content"].'</td>';
+    echo '</tr>';
 }
 echo '</table>';
+
+//Reply form
 if(isset($_SESSION["userId"])){
         echo "<form method='post' action=''>
             Reply: <br><textarea name='reply' /></textarea><br>
