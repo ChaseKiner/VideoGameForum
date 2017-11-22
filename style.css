@@ -143,6 +143,20 @@ h3 {margin: 0; padding: 0;}
     text-decoration: none;
 } 
 
+.categoryitem {
+    background-color: #103037;
+    border: 1px solid #032472;
+    border-radius: 5px;
+    color: #FFF;
+    font-family: Arial;
+    padding: 3px;
+    padding-bottom: 1px;
+    text-decoration: none;
+}
+a:hover{
+    background-color: #009FC1;
+}
+
 .small {
     font-size: 75%;
     color: #373737;

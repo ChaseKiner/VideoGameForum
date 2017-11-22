@@ -59,19 +59,20 @@ echo '<br><br>';
 if(isset($_SESSION["userId"])){
         echo "<form method='post' action=''>
             Reply: <br><textarea name='reply' /></textarea><br>
-            <input class = 'item' type='submit' value='Reply' />
+            <input class = 'item' type='submit' value='reply' />
         </form>";
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //check if reply has any content
+        if($_POST['reply'] != ''){
         $sql = "INSERT INTO Reply(Content, Sends, Attached)
         VALUES('". mysql_real_escape_string($_POST['reply']) ."',
                 ".$_SESSION["userId"].",
                 ".$_GET["id"].")";
         $result = mysql_query($sql);
-        //display the new reply
-        $url = 'topic.php?id='.$_GET["id"];
-        header("Location: $url");
-        
-
+        }
+    //display the new reply
+    $url = 'topic.php?id='.$_GET["id"];
+    header("Location: $url");
     }
 }
 
