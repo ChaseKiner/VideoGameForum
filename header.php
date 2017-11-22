@@ -21,12 +21,11 @@
             session_start();
 
             if(!isset($_SESSION["userId"])){
-                echo 'Hello, gamer! <a class="item" href="signup.php">Please create an account<a> -
-                <a class="item" href="login_page.inc.php">Log in<a>';
+                echo 'Hello, gamer! <a class="item" href="signup.php">Please create an account</a>
+                <a class="item" href="login_page.inc.php">Log in</a>';
             }
             else{
-                echo 'Hello, ';
-                echo $_SESSION["username"]." ";
+                echo 'Hello, '.$_SESSION["username"]." ";
                 echo '<a class="item" href="signout.php">Log out<a>';
             }
             ?>

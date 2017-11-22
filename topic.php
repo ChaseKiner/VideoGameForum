@@ -16,7 +16,8 @@ $resReply = mysql_query($repliesQuery);
 
 echo '<div id="topic-post">
         <table>
-        <th width="20%"><h2>'.$row["Title"].'</th></h2>
+        <th width="20%"></th>
+        <th width="80%"><h2>'.$row["Title"].'</h2></td>
             <tr>
                 <td class = "postleftpart">
                 <img class = "post-image"src="img/Placeholderface.svg.png"><br>
