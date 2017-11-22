@@ -5,7 +5,7 @@
     $q = "SELECT Title, MessageId, Posts FROM message WHERE Category = ".$_GET['id'];
     $r = mysql_query($q);
     echo mysql_error();
-    echo "<table><th>Thread</th><th>Posted by</th>";
+    echo "<table><th width = '80%'>Thread</th><th>Posted by</th width = '20%'>";
     if(mysql_num_rows($r)==0){
         echo '<tr><td>No topics in this category yet</td></tr>';
     }
@@ -14,8 +14,8 @@
         $res = mysql_query($query);
         $name = mysql_fetch_assoc($res);
         echo "<tr>";
-        echo "<td><a href = 'topic.php?id=".$row["MessageId"]."'>".$row["Title"]."</a></td>
-            <td>".$name["FirstName"]." ".$name["LastName"]."</td>";
+        echo '<td class = "categoriesleftpart"><a href = "topic.php?id='.$row["MessageId"].'">'.$row["Title"].'</a></td>
+            <td class = "categoriesrightpart">'.$name["FirstName"].' '.$name["LastName"].'</td>';
         echo "</tr>";
     }
     echo "</table>";

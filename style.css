@@ -87,7 +87,8 @@ td.categoriesleftpart {
 }
  
 td.categoriesrightpart {
-    border-radius: 20px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     padding-right: 5px;
     width: 20%;
     height: 100px;
