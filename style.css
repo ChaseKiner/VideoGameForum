@@ -82,13 +82,16 @@ td.categoriesimage{
 }
 
 td.categoriesleftpart {
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     width: 65%;
 }
  
 td.categoriesrightpart {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     padding-right: 5px;
     width: 20%;
     height: 100px;
@@ -145,7 +148,7 @@ h3 {margin: 0; padding: 0;}
 } 
 
 .categoryitem {
-    background-color: #103037;
+    background-color: #232524;
     border: 1px solid #032472;
     border-radius: 5px;
     color: #FFF;
