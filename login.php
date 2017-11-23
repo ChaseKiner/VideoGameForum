@@ -35,8 +35,8 @@ if (mysql_num_rows($r) == 1) {
     session_start();
     $_SESSION['userId'] = $row['UserId'];
     $_SESSION['user_email'] = strtolower($email_post);
+    $_SESSION['username'] = $row['FirstName'];
    //will need changed
-    $_SESSION['fullName'] = $row['FirstName'].$row['LastName'];
     $_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
     
     

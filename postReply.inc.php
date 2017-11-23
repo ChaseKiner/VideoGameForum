@@ -20,8 +20,18 @@
         echo $row["Content"];
         echo '</td></tr></h3>';
         echo '<tr><td>';
-    }
 
+        if(isset($_SESSION["userId"]))
+        if($_SESSION["userId"]==$row["Posts"]){
+            echo '<a class="item" href="update.php?id='.$row["MessageId"].'">[Update]</a>';
+            echo ' - ';
+            echo '<a class="item" href="delete.php?id='.$row["MessageId"].'"> [Delete]</a>';
+        }
+        echo '</table>';
+        echo '</div>';
+        echo '<br><br>';        
+    }
+    
     function fetchReply($rowReply) {
         $replierQuery = 'SELECT FirstName, LastName FROM User WHERE UserId = '.$rowReply["Sends"];
         $replierName = mysql_fetch_assoc(mysql_query($replierQuery));
@@ -35,12 +45,16 @@
         echo '</tr>';
     }
 
-    
-    function DisplayReplies(){
-    // Query database for replies
-    $repliesQuery = 'SELECT Content, Sends FROM Reply WHERE Attached = '.$_GET['id'];
-    $resReply = mysql_query($repliesQuery);
+    ///Query replies for the id in $_GET['id']
+    function queryReplies() {
+        $repliesQuery = 'SELECT Content, Sends FROM Reply WHERE Attached = '.$_GET['id'];
+        $resReply = mysql_query($repliesQuery);
+        return $resReply;
+    }
 
+    //create a <table> of replies for the id in $_GET['id']
+    function displayReplies(){
+    $resReply = queryReplies();
     echo '<table>';
         while($rowReply = mysql_fetch_assoc($resReply)){
             fetchReply($rowReply);
