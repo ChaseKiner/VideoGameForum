@@ -73,10 +73,11 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //check if reply has any content
             if($_POST['reply'] != ''){
-            $sql = "INSERT INTO Reply(Content, Sends, Attached)
+            $sql = "INSERT INTO Reply(Content, Sends, Attached, DatePosted)
             VALUES('". mysql_real_escape_string($_POST['reply']) ."',
                     ".$_SESSION["userId"].",
-                    ".$_GET["id"].")";
+                    ".$_GET["id"].",
+                    NOW())";
             $result = mysql_query($sql);
             }
         //display the new reply
