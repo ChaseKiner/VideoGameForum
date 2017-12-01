@@ -12,4 +12,5 @@ function postTopic($row) {
 $q = "SELECT Title, MessageId, Posts FROM message WHERE Category = ".$_GET['id'];
 $r = mysql_query($q);
 echo mysql_error();
+
 ?>

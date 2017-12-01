@@ -2,7 +2,28 @@
     include('header.php');
     include('connect.php');
 
+    $query = "SELECT CategoryId, Name, Description FROM Category";
+    $result = mysql_query($query);
+    echo mysql_error();
+    
+    echo "<table>";
+    while($row = mysql_fetch_assoc($result)) {
+        echo "<tr>
+            <td class='categoriesimage'>
+                <img src='img/".$row["Name"].".png' height='100' width='100'>
+            </td>
+            <td class='categoriesleftpart'>
+                <h3><a class='categoryitem' href='category.php?id=".$row["CategoryId"]."'>".$row["Name"]."</a></h3>".$row["Description"]."
+            </td>
+            <td class='categoriesrightpart'>
+                <a href='topic.php?id='>Most Recent Topic</a> at (date)
+            </td>
+        </tr>";
+    }
+    echo "</table>";
+
 ?>
+<!-- 
 <table>
 <tr>
     <td class="categoriesimage">
@@ -48,10 +69,10 @@
         <a href="topic.php?id=">Most Recent Topic</a> at (date)
     </td>
 </tr>
-</table>
+</table> -->
 
 
 
 <?php
-    include 'footer.php'
+    include('footer.php');
 ?>
