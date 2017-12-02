@@ -17,21 +17,15 @@ if(isset($_SESSION['userId'])){
     {
         //the form has been posted, so save it
         $sql = "INSERT INTO Message(Title, Content, Posts, Category, DatePosted)
-        VALUES('" . mysql_real_escape_string($_POST['title']) . "',
-                '". mysql_real_escape_string($_POST['description']) ."',
+        VALUES('" . mysqli_real_escape_string($_POST['title']) . "',
+                '". mysqli_real_escape_string($_POST['description']) ."',
                 ".$_SESSION["userId"].",
                 ".$_GET["id"].",
                 NOW())";
-        $result = mysql_query($sql);
-        if(!$result)
-        {
-            echo 'Error' . mysql_error();
-        }
-        else
-        {   
-            $url = 'category.php?id='.$_GET["id"];
-            header("Location: $url");
-        }
+        $result = mysqli_query($connect, $sql);
+        
+        $url = 'category.php?id='.$_GET["id"];
+        header("Location: $url");
     }
 }
 ?>

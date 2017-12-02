@@ -58,7 +58,7 @@
 				'$email',
 				SHA1('$password')
 				)";
-		$r = @mysql_query($q); // Run the query.
+		$r = @mysqli_query($connect, $q); // Run the query.
 		if ($r) { // If it ran OK.
 			// Print a message:
 							echo '<h3 class="panel-title">Submission to Database Successful!</h3>';
@@ -66,7 +66,6 @@
 				// Public message:
 			echo '<h2><strong>System Error!</strong></h2>
 			<p class="error">There are problems with this submission.</p>';
-			echo mysql_error();
 			
 			$ShowSubmit = 1; //show the submit button
 			unset($_POST['submit']);
@@ -76,7 +75,7 @@
 		unset($_POST['submit']);
 		
 	} // End of if (empty($errors)) IF.
-		//mysql_close($dbc); // Close the database connection.
+		//mysqli_close($dbc); // Close the database connection.
 
 } // End of the main Submit conditional.
 else{

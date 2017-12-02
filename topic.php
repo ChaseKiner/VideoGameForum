@@ -1,14 +1,13 @@
 <?php
 include 'header.php';
-include 'connect.php';
 include 'postReply.inc.php';
 
-displayTopic();
+displayTopic($connect);
 
 //Insert replies
-displayReplies();
+displayReplies($connect);
 
-insertReplyForm();
+insertReplyForm($connect);
 
 include 'footer.php';
 ?>

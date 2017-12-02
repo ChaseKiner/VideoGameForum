@@ -1,11 +1,12 @@
 <?php
+    include 'connect.php';
 
-    function displayTopic(){
+    function displayTopic($connect){
         $query = 'SELECT * FROM Message WHERE MessageId = '.$_GET['id'];
-        $res = mysql_query($query);
-        $row = mysql_fetch_assoc($res);
+        $res = mysqli_query($connect, $query);
+        $row = mysqli_fetch_assoc($res);
         $q = 'SELECT FirstName, LastName FROM User WHERE UserId = '.$row["Posts"];
-        $name = mysql_fetch_assoc(mysql_query($q));
+        $name = mysqli_fetch_assoc(mysqli_query($connect, $q));
 
         echo '<div id="topic-post">
                 <table>
@@ -32,9 +33,9 @@
         echo '<br><br>';        
     }
     
-    function fetchReply($rowReply) {
+    function fetchReply($rowReply, $connect) {
         $replierQuery = 'SELECT FirstName, LastName FROM User WHERE UserId = '.$rowReply["Sends"];
-        $replierName = mysql_fetch_assoc(mysql_query($replierQuery));
+        $replierName = mysqli_fetch_assoc(mysqli_query($connect, $replierQuery));
 
         echo '<tr>';
         echo '<td class="replyleftpart">
@@ -46,24 +47,24 @@
     }
 
     ///Query replies for the id in $_GET['id']
-    function queryReplies() {
+    function queryReplies($connect) {
         $repliesQuery = 'SELECT Content, Sends FROM Reply WHERE Attached = '.$_GET['id'];
-        $resReply = mysql_query($repliesQuery);
+        $resReply = mysqli_query($connect, $repliesQuery);
         return $resReply;
     }
 
     //create a <table> of replies for the id in $_GET['id']
-    function displayReplies(){
-    $resReply = queryReplies();
-    echo '<table>';
-        while($rowReply = mysql_fetch_assoc($resReply)){
-            fetchReply($rowReply);
-        }
-    echo '</table>';
-    echo '<br><br>';
+    function displayReplies($connect){
+        $resReply = queryReplies($connect);
+        echo '<table>';
+            while($rowReply = mysqli_fetch_assoc($resReply)){
+                fetchReply($rowReply, $connect);
+            }
+        echo '</table>';
+        echo '<br><br>';
     }
 
-    function insertReplyForm() {
+    function insertReplyForm($connect) {
         //Reply form
         if(isset($_SESSION["userId"])){
             echo "<form method='post' action=''>
@@ -74,11 +75,11 @@
             //check if reply has any content
             if($_POST['reply'] != ''){
             $sql = "INSERT INTO Reply(Content, Sends, Attached, DatePosted)
-            VALUES('". mysql_real_escape_string($_POST['reply']) ."',
+            VALUES('". mysqli_real_escape_string($_POST['reply']) ."',
                     ".$_SESSION["userId"].",
                     ".$_GET["id"].",
                     NOW())";
-            $result = mysql_query($sql);
+            $result = mysqli_query($connect, $sql);
             }
         //display the new reply
         $url = 'topic.php?id='.$_GET["id"];

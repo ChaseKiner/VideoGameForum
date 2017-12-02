@@ -24,12 +24,12 @@ function absolute_url ($page = '') {
 } // End of absolute_url() function
 
 $q = "SELECT * FROM user WHERE Email='$email_post' AND Password=SHA1('$p')";
-$r = @mysql_query($q);
-echo mysql_error();
-if (mysql_num_rows($r) == 1) {
+$r = @mysqli_query($connect, $q);
+
+if (mysqli_num_rows($r) == 1) {
     // Get the user's information:
     
-	$row = mysql_fetch_assoc($r);
+	$row = mysqli_fetch_assoc($r);
 	
     // Set the session data:
     session_start();

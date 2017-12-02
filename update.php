@@ -2,7 +2,7 @@
     include 'header.php';
     include 'connect.php';
     $q = 'SELECT * FROM Message WHERE MessageId = '.$_GET['id'];
-    $res = mysql_fetch_assoc(mysql_query($q));
+    $res = mysqli_fetch_assoc(mysqli_query($connect, $q));
     if($_SESSION["userId"] == $res["Posts"]){
         if($_SERVER['REQUEST_METHOD'] != 'POST'){
 
@@ -15,7 +15,7 @@
         else{
             $update = "UPDATE Message SET Title = '".$_POST["title"]."', 
             Content = '".$_POST["description"]."' WHERE MessageId = ".$res["MessageId"];
-            mysql_query($update);
+            mysqli_query($connect, $update);
             echo "Successfully updated";
         }
 }
