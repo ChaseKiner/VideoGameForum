@@ -15,7 +15,7 @@
                 <th width="80%"><h2>'.$row["Title"].'</h2></td>
                     <tr>
                         <td class = "postleftpart">
-                        <img class = "post-image"src="img/Placeholderface.svg.png"><br>
+                        <img class = "post-image"src="img/PlaceholderFace.svg.png"><br>
                             '.$name["FirstName"].' '.$name["LastName"];
                         
         echo '<td class = "postrightpart"><h3>';
@@ -40,7 +40,7 @@
 
         echo '<tr>';
         echo '<td class="replyleftpart">
-            <img class = "post-image"src="img/Placeholderface.svg.png"><br>'
+            <img class = "post-image"src="img/PlaceholderFace.svg.png"><br>'
             .$replierName["FirstName"]." ".$replierName["LastName"].'
             </td>';
         echo '<td class="replyrightpart">'.$rowReply["Content"].'</td>';
