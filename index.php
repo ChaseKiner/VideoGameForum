@@ -2,7 +2,7 @@
     include('header.php');
     include('connect.php');
 
-    $query = "SELECT CategoryId, Name, Description FROM Category";
+    $query = "SELECT CategoryId, Name, Description FROM category";
     $result = mysqli_query($connect, $query);
     
     echo "<table>";
