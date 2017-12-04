@@ -17,6 +17,20 @@
                         <td class = "postleftpart">
                         <img class = "post-image"src="img/PlaceholderFace.svg.png"><br>
                             '.$name["FirstName"].' '.$name["LastName"];
+        
+         $sql = "Select * from favorite where UserWhoFavorited = $_SESSION["userId"] and ParentTable = 'User' and FavoritedId = $rowReply['Sends']";
+        $result = mysqli_query($connect, $sql);
+        
+
+        if (mysqli_num_rows($result) == 0) {
+          
+          echo " <a href="favorite.php?id=$rowReply['Sends']&parent=User"><i class="fa fa-star-o" aria-hidden="true"></i></a>";
+		}
+
+        else{
+          
+           echo "<a href="favorite.php?id=$rowReply['Sends']&parent=User"><i class="fa fa-star" aria-hidden="true"></i></a>"; 
+        }
                         
         echo '<td class = "postrightpart"><h3>';
         echo $row["Content"];
@@ -42,8 +56,23 @@
         echo $rowReply["DatePosted"];
         echo '<td class="replyleftpart">
             <img class = "post-image"src="img/PlaceholderFace.svg.png"><br>'
-            .$replierName["FirstName"]." ".$replierName["LastName"].'
-            </td>';
+            .$replierName["FirstName"]." ".$replierName["LastName"];
+        
+        $sql = "Select * from favorite where UserWhoFavorited = $_SESSION["userId"] and ParentTable = 'User' and FavoritedId = $rowReply['Sends']";
+        $result = mysqli_query($connect, $sql);
+        
+
+        if (mysqli_num_rows($result) == 0) {
+          
+          echo " <a href="favorite.php?id=$rowReply['Sends']&parent=User"><i class="fa fa-star-o" aria-hidden="true"></i></a>";
+		}
+
+        else{
+          
+           echo "<a href="favorite.php?id=$rowReply['Sends']&parent=User"><i class="fa fa-star" aria-hidden="true"></i></a>"; 
+        }
+        
+        echo ' </td>';
         echo '<td class="replyrightpart">'.$rowReply["Content"].'</td>';
         echo '</tr>';
     }
