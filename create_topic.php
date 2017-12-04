@@ -1,5 +1,4 @@
 <?php
-//create_cat.php
 
 include 'header.php';
 include 'connect.php';
@@ -15,10 +14,13 @@ if(isset($_SESSION['userId'])){
     }
     else
     {
+		$desc = mysqli_real_escape_string($connect, $_POST['description']);
+		$title = mysqli_real_escape_string($connect, $_POST['title']);
+
         //the form has been posted, so save it
         $sql = "INSERT INTO message(Title, Content, Posts, Category, DatePosted)
-        VALUES('" .$_POST['title']. "',
-                '".$_POST['description']."',
+        VALUES('" .$title. "',
+                '".$desc."',
                 ".$_SESSION["userId"].",
                 ".$_GET["id"].",
                 NOW())";
