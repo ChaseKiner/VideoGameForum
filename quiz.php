@@ -10,7 +10,7 @@
 <table>
 <tr>
 <?php 
-             	$rs_q = "SELECT franchise FROM videogames ORDER BY franchise ASC";
+             	$rs_q = "SELECT DISTINCT franchise FROM videogames ORDER BY franchise ASC";
          		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 <?php 
-             	$rs_q = "SELECT rating FROM videogames ORDER BY rating ASC";
+             	$rs_q = "SELECT DISTINCT rating FROM videogames ORDER BY rating ASC";
          		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
@@ -46,7 +46,7 @@
 </tr>
 <tr>
 <?php 
-             	$rs_q = "SELECT game_modes FROM videogames ORDER BY game_modes ASC";
+             	$rs_q = "SELECT DISTINCT game_modes FROM videogames ORDER BY game_modes ASC";
          		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
@@ -64,7 +64,7 @@
 </tr>
 <tr>
 <?php 
-             	$rs_q = "SELECT genres FROM videogames ORDER BY genres ASC";
+             	$rs_q = "SELECT  DISTINCT genres FROM videogames ORDER BY genres ASC";
          		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
@@ -82,7 +82,7 @@
 </tr>
 <tr>
 <?php 
-             	$rs_q = "SELECT popularity FROM videogames ORDER BY popularity ASC";
+             	$rs_q = "SELECT DISTINCT popularity FROM videogames ORDER BY popularity ASC";
          		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
