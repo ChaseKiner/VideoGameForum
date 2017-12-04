@@ -1,6 +1,6 @@
 <?php
-    include 'header.php'
-    include 'connect.php'
+    include 'header.php';
+    include 'connect.php';
 	
 	$rating = $_POST['rating'];
 	$franchise = $_POST['franchise'];

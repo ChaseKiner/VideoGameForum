@@ -4,7 +4,7 @@
     
     /// Query for retrieving topics
     include 'postTopic.inc.php';
-        $q = "SELECT Title, MessageId, Posts FROM message WHERE Category = ".$_GET['category']." and archive = 0 and (Content LIKE "%'. $_GET['SValue'] .'%" or Title LIKE "%'. $_GET['SValue'] .'%") ORDER BY;
+        $q = "SELECT Title, MessageId, Posts FROM message WHERE Category = ".$_GET['category']." and archive = 0 and (Content LIKE '%". $_GET['SValue'] .'%" or Title LIKE "%'. $_GET['SValue'] .'%") ORDER BY';
     $r = mysqli_query($connect, $q);
     
     /// Begin table creation
