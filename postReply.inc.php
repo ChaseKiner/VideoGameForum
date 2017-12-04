@@ -11,7 +11,7 @@
 
         echo '<div id="topic-post">
                 <table>
-                <th width="20%"></th>
+                <th width="20%"><h5>'.$row["DatePosted"].'</th>
                 <th width="80%"><h2>'.$row["Title"].'</h2></td>
                     <tr>
                         <td class = "postleftpart">
