@@ -4,7 +4,8 @@
     
     /// Query for retrieving topics
     include 'postTopic.inc.php';
-        $q = "SELECT Title, MessageId, Posts FROM message WHERE Category = ".$_GET['category']." and (Content LIKE '%". $_GET['SValue'] ."%' or Title LIKE '%". $_GET['SValue'] ."%')";
+        $value = mysqli_real_escape_string($connect, $_GET['SValue']);
+        $q = "SELECT Title, MessageId, Posts FROM message WHERE Category = ".$_GET['category']." and (Content LIKE '%". $value ."%' or Title LIKE '%". $_GET['SValue'] ."%')";
     $r = mysqli_query($connect, $q);
     
     /// Begin table creation

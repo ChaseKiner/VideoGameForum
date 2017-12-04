@@ -22,6 +22,8 @@ function absolute_url ($page = '') {
 	return $url;
 
 } // End of absolute_url() function
+$email_post = mysqli_real_escape_string($connect, $email_post);
+$$p = mysqli_real_escape_string($connect, $p);
 
 $q = "SELECT * FROM user WHERE Email='$email_post' AND Password=SHA1('$p')";
 $r = @mysqli_query($connect, $q);
