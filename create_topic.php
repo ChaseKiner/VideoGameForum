@@ -17,8 +17,8 @@ if(isset($_SESSION['userId'])){
     {
         //the form has been posted, so save it
         $sql = "INSERT INTO message(Title, Content, Posts, Category, DatePosted)
-        VALUES('" . mysqli_real_escape_string($_POST['title']) . "',
-                '". mysqli_real_escape_string($_POST['description']) ."',
+        VALUES('" .$_POST['title']. "',
+                '".$_POST['description']."',
                 ".$_SESSION["userId"].",
                 ".$_GET["id"].",
                 NOW())";
