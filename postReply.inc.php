@@ -39,6 +39,7 @@
         $replierName = mysqli_fetch_assoc(mysqli_query($connect, $replierQuery));
 
         echo '<tr>';
+        echo $rowReply["DatePosted"];
         echo '<td class="replyleftpart">
             <img class = "post-image"src="img/PlaceholderFace.svg.png"><br>'
             .$replierName["FirstName"]." ".$replierName["LastName"].'
@@ -49,7 +50,7 @@
 
     ///Query replies for the id in $_GET['id']
     function queryReplies($connect) {
-        $repliesQuery = 'SELECT Content, Sends FROM reply WHERE Attached = '.$_GET['id'];
+        $repliesQuery = 'SELECT Content, Sends, DatePosted FROM reply WHERE Attached = '.$_GET['id'];
         $resReply = mysqli_query($connect, $repliesQuery);
         return $resReply;
     }
