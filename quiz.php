@@ -1,6 +1,6 @@
 <?php
-    include 'header.php'
-    include 'connect.php'
+    include 'header.php';
+    include 'connect.php';
 	
 	
 	
@@ -23,7 +23,6 @@
 				//end the dropdown box
 				echo '</select>';
 
-                }
             ?>
 
 </tr>
@@ -42,7 +41,6 @@
 				//end the dropdown box
 				echo '</select>';
 
-                }
             ?>
 
 </tr>
@@ -61,7 +59,6 @@
 				//end the dropdown box
 				echo '</select>';
 
-                }
             ?>
 
 </tr>
@@ -80,7 +77,6 @@
 				//end the dropdown box
 				echo '</select>';
 
-                }
             ?>
 
 </tr>
@@ -99,7 +95,6 @@
 				//end the dropdown box
 				echo '</select>';
 
-                }
             ?>
 
 </tr>
