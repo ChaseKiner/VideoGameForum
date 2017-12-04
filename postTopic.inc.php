@@ -12,7 +12,7 @@ function postTopic($row, $connect) {
     $res = mysqli_query($connect, $query);
     $name = mysqli_fetch_assoc($res);
     echo "<tr>";
-    echo '<td class = "thread-leftpart"> <img class = "thread-image" src="'.$name["image"].'"><a href = "topic.php?id='.$row["MessageId"].'">'.$row["Title"].'</a>';
+    echo '<td class = "thread-leftpart"> <img class = "thread-image" src="'.$name["image"].'"> <a href = "topic.php?id='.$row["MessageId"].'">'.$row["Title"].'</a>';
     
     $sql = "Select * from favorite where UserWhoFavorited = ".$_SESSION["userId"]." and ParentTable = 'Topic' and FavoritedId = ".$row["MessageId"];
         $result = mysqli_query($connect, $sql);
