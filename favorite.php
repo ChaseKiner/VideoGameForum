@@ -5,7 +5,7 @@ $parent = $_GET['parent'];
 $id = $_GET['id']; 
 $user = $_SESSION["userId"];
 
-       $sql = "Select * from favorite where UserWhoFavorited = $user and ParentTable = '" . $parent . "' and FavoritedId = $id";
+       $sql = "Select * from favorite where UserWhoFavorited = ".$user." and ParentTable = '" . $parent . "' and FavoritedId = ".$id;
         $result = mysqli_query($connect, $sql);
         
 
@@ -14,13 +14,13 @@ $user = $_SESSION["userId"];
             $sql = "INSERT INTO favorite(ParentTable, FavoritedId, UserWhoFavorited)
             VALUES('" . $parent . "',
                     '". $id ."',
-                    ".$user."";
+                    ".$user.")";
             $result = mysqli_query($connect, $sql);
         }
 
         else{
           
-            $sql = "DELETE FROM favorite where UserWhoFavorited = $user and ParentTable = '" . $parent . "' and FavoritedId = $id";
+            $sql = "DELETE FROM favorite where UserWhoFavorited = ".$user." and ParentTable = '" . $parent . "' and FavoritedId = ".$id;
             $result = mysqli_query($connect, $sql);       
         }
 
