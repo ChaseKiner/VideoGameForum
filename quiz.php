@@ -11,7 +11,7 @@
 <tr>
 <?php 
              	$rs_q = "SELECT franchise FROM videogames ORDER BY franchise ASC";
-         		$rs_rs = mysqli_query($dbc_rs, $rs_q);
+         		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
 				echo '<select id="franchise" name="franchise">';
@@ -30,7 +30,7 @@
 <tr>
 <?php 
              	$rs_q = "SELECT rating FROM videogames ORDER BY rating ASC";
-         		$rs_rs = mysqli_query($dbc_rs, $rs_q);
+         		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
 				echo '<select id="rating" name="rating">';
@@ -49,7 +49,7 @@
 <tr>
 <?php 
              	$rs_q = "SELECT game_modes FROM videogames ORDER BY game_modes ASC";
-         		$rs_rs = mysqli_query($dbc_rs, $rs_q);
+         		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
 				echo '<select id="game_modes" name="game_modes">';
@@ -68,7 +68,7 @@
 <tr>
 <?php 
              	$rs_q = "SELECT genres FROM videogames ORDER BY genres ASC";
-         		$rs_rs = mysqli_query($dbc_rs, $rs_q);
+         		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
 				echo '<select id="genres" name="genres">';
@@ -87,7 +87,7 @@
 <tr>
 <?php 
              	$rs_q = "SELECT popularity FROM videogames ORDER BY popularity ASC";
-         		$rs_rs = mysqli_query($dbc_rs, $rs_q);
+         		$rs_rs = mysqli_query($connect, $rs_q);
 				
 				//start the drop down box
 				echo '<select id="popularity" name="popularity">';
