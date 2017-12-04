@@ -54,7 +54,11 @@
         $replierName = mysqli_fetch_assoc(mysqli_query($connect, $replierQuery));
 
         echo '<tr>';
+        echo '<td class = "date-post">';
         echo $rowReply["DatePosted"];
+        echo '</td>';
+        echo '<td width = "80%"></td>';
+        echo '</tr><tr>';
         echo '<td class="replyleftpart">
             <img class = "post-image"src="'.$replierName["image"].'"><br>'
             .$replierName["FirstName"]." ".$replierName["LastName"];
