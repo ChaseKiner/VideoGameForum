@@ -6,30 +6,31 @@
         $query = 'SELECT * FROM message WHERE MessageId = '.$_GET['id'];
         $res = mysqli_query($connect, $query);
         $row = mysqli_fetch_assoc($res);
-        $q = 'SELECT FirstName, LastName FROM user WHERE UserId = '.$row["Posts"];
-        $name = mysqli_fetch_assoc(mysqli_query($connect, $q));
-
+        $q = 'SELECT FirstName, LastName, image FROM user WHERE UserId = '.$row["Posts"];
+        $sqlRes = mysqli_query($connect, $q);
+        $name = mysqli_fetch_assoc($sqlRes);
+       
         echo '<div id="topic-post">
                 <table>
-                <th width="20%"><h5>'.$row["DatePosted"].'</th>
+                <td><h5>'.$row["DatePosted"].'</td>
                 <th width="80%"><h2>'.$row["Title"].'</h2></td>
                     <tr>
                         <td class = "postleftpart">
-                        <img class = "post-image"src="img/PlaceholderFace.svg.png"><br>
+                        <img class = "post-image" src="'.$name["image"].'"><br>
                             '.$name["FirstName"].' '.$name["LastName"];
         
-         $sql = "Select * from favorite where UserWhoFavorited = $_SESSION["userId"] and ParentTable = 'User' and FavoritedId = $rowReply['Sends']";
+         $sql = "Select * from favorite where UserWhoFavorited = ".$_SESSION["userId"]." and ParentTable = 'User' and FavoritedId = ".$row['Posts'];
         $result = mysqli_query($connect, $sql);
         
 
         if (mysqli_num_rows($result) == 0) {
           
-          echo " <a href="favorite.php?id=$rowReply['Sends']&parent=User"><i class="fa fa-star-o" aria-hidden="true"></i></a>";
+          echo " <a href='favorite.php?id=".$row['Posts']."&parent=User'><i class='fa fa-star-o' aria-hidden='true'></i></a>";
 		}
 
         else{
           
-           echo "<a href="favorite.php?id=$rowReply['Sends']&parent=User"><i class="fa fa-star" aria-hidden="true"></i></a>"; 
+           echo "<a href='favorite.php?id=".$row['Posts']."&parent=User'><i class='fa fa-star' aria-hidden='true'></i></a>"; 
         }
                         
         echo '<td class = "postrightpart"><h3>';
@@ -49,27 +50,27 @@
     }
     
     function fetchReply($rowReply, $connect) {
-        $replierQuery = 'SELECT FirstName, LastName FROM user WHERE UserId = '.$rowReply["Sends"];
+        $replierQuery = 'SELECT FirstName, LastName, image FROM user WHERE UserId = '.$rowReply["Sends"];
         $replierName = mysqli_fetch_assoc(mysqli_query($connect, $replierQuery));
 
         echo '<tr>';
         echo $rowReply["DatePosted"];
         echo '<td class="replyleftpart">
-            <img class = "post-image"src="img/PlaceholderFace.svg.png"><br>'
+            <img class = "post-image"src="'.$replierName["image"].'"><br>'
             .$replierName["FirstName"]." ".$replierName["LastName"];
         
-        $sql = "Select * from favorite where UserWhoFavorited = $_SESSION["userId"] and ParentTable = 'User' and FavoritedId = $rowReply['Sends']";
+        $sql = "Select * from favorite where UserWhoFavorited = ".$_SESSION["userId"]." and ParentTable = 'User' and FavoritedId = ".$rowReply['Sends'];
         $result = mysqli_query($connect, $sql);
         
 
         if (mysqli_num_rows($result) == 0) {
           
-          echo " <a href="favorite.php?id=$rowReply['Sends']&parent=User"><i class="fa fa-star-o" aria-hidden="true"></i></a>";
+          echo " <a href='favorite.php?id=".$rowReply['Sends']."&parent=User'><i class='fa fa-star-o' aria-hidden='true'></i></a>";
 		}
 
         else{
           
-           echo "<a href="favorite.php?id=$rowReply['Sends']&parent=User"><i class="fa fa-star" aria-hidden="true"></i></a>"; 
+           echo "<a href='favorite.php?id=".$rowReply['Sends']."&parent=User'><i class='fa fa-star' aria-hidden='true'></i></a>"; 
         }
         
         echo ' </td>';
@@ -118,10 +119,10 @@
 		    
 		    
 		    
-	$query = "SELECT * from favorite where ParentTable = 'Topic' and FavoritedId = $_GET['id']";
+	$query = "SELECT * from favorite where ParentTable = 'Topic' and FavoritedId = ".$_GET['id'];
         $result = mysqli_query($connect, $query);
         while($row = mysqli_fetch_assoc($result)) {
-           $query_2 = "Select * from user where $row['UserWhoFavorited'] = UserId";
+           $query_2 = "Select * from user where ".$row['UserWhoFavorited']." = UserId";
             $result_2 = mysqli_query($connect, $query_2);
             $row_email = mysqli_fetch_assoc($result_2);
             

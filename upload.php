@@ -1,4 +1,7 @@
+
 <?php
+//reference: https://www.w3schools.com/php/php_file_upload.asp
+
 include("header.php");
 
 if(isset($_SESSION["userId"]){
@@ -47,6 +50,7 @@ if ($uploadOk == 0) {
     }
 
     $query = "UPDATE user SET image = '".$target_file."' WHERE userId = '".$_SESSION["userId"]."'";
+    msqli_query($connect, $query);
 }
 }
 

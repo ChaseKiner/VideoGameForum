@@ -25,7 +25,8 @@
             }
             else{
                 echo 'Hello, '.$_SESSION["username"]." ";
-                echo '<a class="item" href="signout.php">Log out<a>';
+                echo '<a class="item" href="signout.php">Log out<a> ';
+                echo '<a class="item" href="user.php">Upload an image<a>';
             }
             ?>
         </div>
