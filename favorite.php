@@ -1,4 +1,6 @@
-<?php 
+<?php
+include 'header.php';
+
 $parent = $_GET['parent'];
 $id = $_GET['id']; 
 $user = $_SESSION["userId"];
