@@ -3,7 +3,7 @@
 //reference: https://www.w3schools.com/php/php_file_upload.asp
 
 include("header.php");
-
+include("connect.php");
 if(isset($_SESSION["userId"]){
 $target_dir = "img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
