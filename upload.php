@@ -4,7 +4,8 @@
 
 include("header.php");
 include("connect.php");
-if(isset($_SESSION["userId"]){
+
+if(isset($_SESSION["userId"])){
 $target_dir = "img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -50,7 +51,7 @@ if ($uploadOk == 0) {
     }
 
     $query = "UPDATE user SET image = '".$target_file."' WHERE userId = '".$_SESSION["userId"]."'";
-    msqli_query($connect, $query);
+    mysqli_query($connect, $query);
 }
 }
 
