@@ -6,7 +6,7 @@ function postTopic($row, $connect) {
     $res = mysqli_query($connect, $query);
     $name = mysqli_fetch_assoc($res);
     echo "<tr>";
-    echo '<td class = "categoriesleftpart"><a href = "topic.php?id='.$row["MessageId"].'">'.$row["Title"].'</a></td>';
+    echo '<td class = "categoriesleftpart"><a href = "topic.php?id='.$row["MessageId"].'">'.$row["Title"].'</a>';
     
     $sql = "Select * from favorite where UserWhoFavorited = $_SESSION["userId"] and ParentTable = 'Topic' and FavoritedId = $row["MessageId"]";
         $result = mysqli_query($connect, $sql);
@@ -21,7 +21,7 @@ function postTopic($row, $connect) {
           
            echo "<a href="favorite.php?id=$row["MessageId"]&parent=Topic"><i class="fa fa-star" aria-hidden="true"></i></a>"; 
         }
-    
+    echo '</td>';
     echo '<td class = "categoriesrightpart">'.$name["FirstName"].' '.$name["LastName"].'</td>';
     echo "</tr>";
 }
