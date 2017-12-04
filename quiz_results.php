@@ -10,7 +10,7 @@
 	
 
 
-$sql = "Select * from videogames where  rating = '" . $rating . "' and franchise = '" . $franchise . "' and game_modes = '" . $game_modes . "' and genres = '" . $genres . "' and popularity = '" . $popularity . " LIMIT 1'";
+$sql = "Select * from videogames where  rating <= '" . $rating . "' and rating >= '" . $rating+9 . "' and franchise = '" . $franchise . "' and game_modes = '" . $game_modes . "' and genres = '" . $genres . "' and popularity = '" . $popularity . " LIMIT 1'";
         $result = mysqli_query($connect, $sql);
         
         if (mysqli_num_rows($result) == 0) {
