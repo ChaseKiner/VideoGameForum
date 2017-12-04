@@ -179,13 +179,32 @@ a:hover{
 .post-content {
     padding: 30px;
 }
+
 .post-image {
     border-radius: 50%;
-    border: 1px solid #232121;
+    border: 1px solid #EA6060;
     border-radius: 4px;
     padding: 5px;
     padding-left: 0px;
-    width: 150px;
+    width: 20px;
+    height: 20px;
+}
+
+.thread-leftpart {
+    width: 20%;
+}
+
+.thread-rightpart {
+    width: 80%
+}
+
+.thread-image {
+    border-radius: 4px;
+    border: 1px solid #232121;
+    padding: 5px;
+    padding-left: 0px;
+    width: 10px;
+    height: 150px;
 }
 
 .date-post {
