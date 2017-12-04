@@ -1,29 +1,12 @@
 <?php
-function getRecentTopic($categoryId, $connect) {
-$query = "SELECT
-		DatePosted,
-		Title,
-		MessageId,
-		MAX(DatePosted) AS 'MostRecentPost'
-	FROM message
-	WHERE Category = ".$categoryId."
-	GROUP BY Title, datePosted";
-$result = mysqli_query($connect, $query);
-echo mysqli_error($connect);
-if ($result) {
-	$row = mysqli_fetch_assoc($result);
-	return outputMostRecentTopicOrDefault($row);
-}
-}
+function getRecentTopics($connect) {
+$query = "SELECT r.*, m.category, m.title FROM reply r JOIN message m ON r.attached = m.messageId 
+WHERE NOT EXISTS ( 
+	SELECT * FROM reply r2 JOIN message m2 ON r2.attached = m2.messageId 
+	WHERE m.category = m2.Category AND r.DatePosted < r2.DatePosted )
+ORDER BY Category;";
 
-function outputMostRecentTopicOrDefault($row){
-	$output = "";
-	if(isset($row["Title"])) {
-		$output = "<a href='topic.php?id=".$row["MessageId"]."'>".$row["Title"]."<br>".$row["DatePosted"]."</a>";
-	}
-	else {
-		$output = "no posts yet!";
-	}
-	return $output;
+$result = mysqli_query($connect, $query);
+	return $result;
 }
 ?>

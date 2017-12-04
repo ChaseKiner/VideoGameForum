@@ -3,13 +3,17 @@
     include('connect.php');
     include('index.inc.php');
 
-    $query = "SELECT CategoryId, Name, Description FROM category";
+    $query = "SELECT CategoryId, Name, Description FROM category ORDER BY categoryId";
     $result = mysqli_query($connect, $query);
+
+    $recentTopics = getRecentTopics($connect);
     
     echo "<table>";
     while($row = mysqli_fetch_assoc($result)) {
-        
-        $recentTopic = getRecentTopic($row["CategoryId"], $connect);
+
+        if($recentTopic = mysqli_fetch_assoc($recentTopics)){
+            $recentReplier = mysqli_fetch_assoc(mysqli_query($connect, "SELECT FirstName, LastName FROM user WHERE userId = ".$recentTopic["Sends"]));
+        }
         echo "<tr>
             <td class='categoriesimage'>
                 <img src='img/".$row["Name"].".png' height='100' width='100'>
@@ -31,9 +35,11 @@
                 }
                echo " </h3>".$row["Description"]."
             </td>
-            <td class='categoriesrightpart'>".
-                $recentTopic
-                ."</td>
+            <td class='categoriesrightpart'>
+                <a href='topic.php?id=".$recentTopic["Attached"]."'>".$recentTopic["title"]."</a>
+                <br> <font size='-2'> most recent reply by " . $recentReplier["FirstName"] . " " . $recentReplier["LastName"]
+                ."<br> on " . $recentTopic["DatePosted"] 
+                ."</font></td>
        </tr>";
     }
     echo "</table>";

@@ -60,7 +60,7 @@
         echo '<td width = "80%"></td>';
         echo '</tr><tr>';
         echo '<td class="replyleftpart">
-            <img class = "post-image"src="'.$replierName["image"].'"><br>'
+            <img class = "post-image" src="'.$replierName["image"].'"><br>'
             .$replierName["FirstName"]." ".$replierName["LastName"];
         
         $sql = "Select * from favorite where UserWhoFavorited = ".$_SESSION["userId"]." and ParentTable = 'User' and FavoritedId = ".$rowReply['Sends'];
