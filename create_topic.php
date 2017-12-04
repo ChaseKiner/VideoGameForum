@@ -25,10 +25,10 @@ if(isset($_SESSION['userId'])){
         $result = mysqli_query($connect, $sql);
       
         
-         $query = "SELECT * from favorite where ParentTable = 'User' and FavoritedId = $_SESSION['userId']";
+         $query = "SELECT * from favorite where ParentTable = 'User' and FavoritedId = ".$_SESSION['userId'];
         $result = mysqli_query($connect, $query);
         while($row = mysqli_fetch_assoc($result)) {
-           $query_2 = "Select * from user where $row['UserWhoFavorited'] = UserId";
+           $query_2 = "Select * from user where ".$row['UserWhoFavorited']." = UserId";
             $result_2 = mysqli_query($connect, $query_2);
             $row_email = mysqli_fetch_assoc($result_2);
             
@@ -61,10 +61,10 @@ if(isset($_SESSION['userId'])){
             
         }
         
-        $query = "SELECT * from favorite where ParentTable = 'Category' and FavoritedId = $_GET['id']";
+        $query = "SELECT * from favorite where ParentTable = 'Category' and FavoritedId = ".$_GET['id'];
         $result = mysqli_query($connect, $query);
         while($row = mysqli_fetch_assoc($result)) {
-           $query_2 = "Select * from user where $row['UserWhoFavorited'] = UserId";
+           $query_2 = "Select * from user where ".$row['UserWhoFavorited']." = UserId";
             $result_2 = mysqli_query($connect, $query_2);
             $row_email = mysqli_fetch_assoc($result_2);
             
