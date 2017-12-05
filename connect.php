@@ -2,7 +2,7 @@
 //connect.php
 $server = '127.0.0.1';
 $username   = 'root';
-$password   = 'pass';
+$password   = '123password';
 $database   = 'forum';
 
 $connect = mysqli_connect($server, $username, $password, $database); 
