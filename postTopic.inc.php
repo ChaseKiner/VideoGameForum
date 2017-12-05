@@ -1,9 +1,11 @@
 <?php
 function queryForTopics($connect) {
-    $q = "SELECT Title, MessageId, Posts 
-        FROM message 
-        WHERE Category = ".$_GET['id'];
+    $q = "SELECT Title, MessageId, Posts, DatePosted
+        FROM message
+        WHERE Category = ".$_GET['id']." 
+        ORDER BY DatePosted DESC";
     $r = mysqli_query($connect, $q);
+    echo mysqli_error($connect);
     return $r;
 }
 
