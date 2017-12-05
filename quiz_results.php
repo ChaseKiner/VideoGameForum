@@ -14,7 +14,7 @@ if ($rating == ''){
 	$rating_filter = "(rating >= '" . $rating . "' and rating <= '" . $rating+9 . "')";
 }
 
-$sql = "Select * from videogames where  " . $rating_filter . " and franchise = '" . $franchise . "' and game_modes = '" . $game_modes . "' and genres = '" . $genres . "' and popularity = '" . $popularity . " LIMIT 1'";
+$sql = "Select * from videogames where  " . $rating_filter . " and franchise = '" . $franchise . "' and game_modes = '" . $game_modes . "' and genres = '" . $genres . "' and popularity = '" . $popularity . "' LIMIT 1";
         $result = mysqli_query($connect, $sql);
         
         if (mysqli_num_rows($result) == 0) {
@@ -23,16 +23,16 @@ $sql = "Select * from videogames where  " . $rating_filter . " and franchise = '
         else{
           $row = mysqli_fetch_assoc($result);
             echo "<h3>";
-			echo  $row['Name'];
+			echo  $row['name'];
 			echo "</h3>"; 
 			
-			echo "<h4> Summary: ";
+			echo "<h6> Summary: ";
 			echo  $row['summary'];
-			echo "</h4>";
+			echo "</h6>";
 			
-			echo "<h4> Storyline: ";
+			echo "<h6> Storyline: ";
 			echo  $row['storyline'];
-			echo "</h4>";
+			echo "</h6>";
 			
 			
         }
