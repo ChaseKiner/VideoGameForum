@@ -23,16 +23,16 @@ $sql = "Select * from videogames where  " . $rating_filter . " and franchise = '
         else{
           $row = mysqli_fetch_assoc($result);
             echo "<h3>";
-			echo  $row['Name'];
+			echo  $row['name'];
 			echo "</h3>"; 
 			
-			echo "<h4> Summary: ";
+			echo "<h6> Summary: ";
 			echo  $row['summary'];
-			echo "</h4>";
+			echo "</h6>";
 			
-			echo "<h4> Storyline: ";
+			echo "<h6> Storyline: ";
 			echo  $row['storyline'];
-			echo "</h4>";
+			echo "</h6>";
 			
 			
         }
