@@ -29,12 +29,13 @@
 <tr><td> Rating </td> <td>
 <?php 
              	echo '<select id="rating" name="rating">';
-			echo '<option value="50">50-59</option>\n';
-echo '<option value="60">60-69</option>\n';
-echo '<option value="70">70-79</option>\n';
-echo '<option value="80">80-89</option>\n';
-echo '<option value="90">90-100</option>\n';
-			
+		echo '<option value="">Rating is not important</option>\n';
+		echo '<option value="50">50-59</option>\n';
+		echo '<option value="60">60-69</option>\n';
+		echo '<option value="70">70-79</option>\n';
+		echo '<option value="80">80-89</option>\n';
+		echo '<option value="90">90-100</option>\n';
+
 		echo '</select>';
 
             ?>
